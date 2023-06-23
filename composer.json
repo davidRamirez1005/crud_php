@@ -1,0 +1,22 @@
+{
+    "name": "skylab-179/crud_php",
+    "description": "..",
+    "license": "LTS",
+    "autoload": {
+        "psr-4": {
+            "App\\": [
+                "./scripts/factura",
+                "./scripts/usuario"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "davidRamirez1005",
+            "email": "ramirezjd1005@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "~1.6"
+    }
+}
