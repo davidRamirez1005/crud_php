@@ -1,6 +1,10 @@
 <?php 
 
 namespace App;
+
+/**
+ * * se definen las credenciales de la base de datos
+ */
 abstract class credentials{
     use system;
     private $host = "172.16.49.20";
