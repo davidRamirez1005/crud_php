@@ -19,5 +19,6 @@
     "require": {
         "symfony/var-dumper": "^6.3",
         "bramus/router": "~1.6"
+
     }
 }
