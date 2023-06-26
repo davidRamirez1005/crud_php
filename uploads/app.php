@@ -8,7 +8,7 @@ $dotenv = Dotenv\Dotenv::createImmutable("../")->load();
  *  ! GET
  */
 // trae todos los datos de la db
-$router -> get("/camper",function(){
+$router -> get("/tipo",function(){
     /**
      * * new \App\connect() => se crea una instancia de la clase que se encarga de establecer la conexion a la base de datos
      */
@@ -92,12 +92,11 @@ $router -> get("/camper",function(){
 
 
 // trae los datos por medio del id del metodo get
-$router->put("/camper/{id}", function($id) {
+$router->put("/tipo/{id}", function($id) {
     $_DATA = json_decode(file_get_contents("php://input"),true);
     $cox = new \App\connect();
-    $res = $cox->con->prepare("UPDATE tb_camper SET nombre = :NOMBRE, edad = :EDAD WHERE id = :ID");
-    $res -> bindValue('NOMBRE', $_DATA["nom"]);
-    $res -> bindValue('EDAD', $_DATA["edad"]);
+    $res = $cox->con->prepare("UPDATE areas SET  name_area = :NOMBRE WHERE id = :ID");
+    $res -> bindValue('NOMBRE', $_DATA["name"]);
     $res -> bindValue('ID', $id);
     $res -> execute();
     $res = $res->rowCount(); //obtener el número de filas afectadas por la última operación de la consulta
@@ -107,10 +106,10 @@ $router->put("/camper/{id}", function($id) {
 /**
  *  ! DELETE
  */
-$router->delete("/camper/{id}", function($id){
+$router->delete("/tipo/{id}", function($id){
     $_DATA = json_decode(file_get_contents("php://input"),true);
     $cox = new \App\connect();
-    $res = $cox->con->prepare("DELETE FROM tb_camper WHERE id=:ID");
+    $res = $cox->con->prepare("DELETE FROM areas WHERE id=:ID");
     $res -> bindValue('ID', $id);
     $res -> execute();
     $res = $res->rowCount();
@@ -120,12 +119,11 @@ $router->delete("/camper/{id}", function($id){
 /**
  *  ! POST
  */
-$router->post("/camper",function(){
+$router->post("/tipo",function(){
     $_DATA = json_decode(file_get_contents("php://input"), true);
     $cox = new \App\connect();
-    $res = $cox->con->prepare("INSERT INTO tb_camper (nombre, edad) VALUES (:NOMBRE, :EDAD)");
-    $res->bindValue('NOMBRE', $_DATA["nom"]);
-    $res->bindValue('EDAD', $_DATA["edad"]);
+    $res = $cox->con->prepare("INSERT INTO areas (name_area) VALUES (:NOMBRE)");
+    $res->bindValue('NOMBRE', $_DATA["name_area"]);
     $res->execute();
     $res = $res->rowCount();
     echo json_encode($res);
