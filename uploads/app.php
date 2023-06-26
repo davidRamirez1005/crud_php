@@ -3,7 +3,7 @@
 require "../vendor/autoload.php";
 
 $router = new \Bramus\Router\Router();
-
+$dotenv = Dotenv\Dotenv::createImmutable("../")->load();
 /**
  *  ! GET
  */
@@ -129,8 +129,9 @@ $router->post("/camper",function(){
     $res->execute();
     $res = $res->rowCount();
     echo json_encode($res);
+    
+    
+    
 });
-
-
 
 $router->run();

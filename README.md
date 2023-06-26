@@ -4,6 +4,9 @@ composer init
 
 composer require bramus/router ~1.6
 
+
+composer require vlucas/phpdotenv
+
 composer update
 
 /////////////////////////////////////////////////////////////////
