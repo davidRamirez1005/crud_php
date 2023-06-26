@@ -16,7 +16,7 @@ $router -> get("/camper",function(){
     /**
      * * preparando una consulta SQL para seleccionar todos los registros de la tabla "tb_camper"
      */
-    $res = $cox->con->prepare("SELECT * FROM tb_camper");
+    $res = $cox->con->prepare("SELECT * FROM areas");
     /**
      * *ejecutando la consulta SQL que preparaste en la línea anterior
      */
